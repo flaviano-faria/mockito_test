@@ -2,6 +2,7 @@
 package com.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
@@ -16,14 +17,24 @@ public class OrderServiceTest {
 	
 	
 	@Test
-	public void createOrderTest() throws Exception {
+	public void createSucessOrderTest() throws Exception {
 		FraudService fraudService = mock(FraudService.class);
 		OrderService orderServiceSpy = spy(new OrderService());
 		
-		when(fraudService.isFraudEligible()).thenReturn(false);
+		when(fraudService.isFraudEligible(Mockito.anyDouble())).thenReturn(false);
 		when(orderServiceSpy.getFraudService()).thenReturn(fraudService);
-		assertEquals("0", orderServiceSpy.createOrder());
+		assertEquals("Order created", orderServiceSpy.createOrder(Mockito.anyDouble()));
 		
+	}
+	
+	@Test
+	public void createFraudOrderTest() throws Exception {
+		FraudService fraudService = mock(FraudService.class);
+		OrderService orderServiceSpy = spy(new OrderService());
+		
+		when(fraudService.isFraudEligible(Mockito.anyDouble())).thenReturn(true);
+		when(orderServiceSpy.getFraudService()).thenReturn(fraudService);
+		assertThrows(Exception.class, null);
 	}
 
 }

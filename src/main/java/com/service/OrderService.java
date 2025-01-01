@@ -2,13 +2,13 @@ package com.service;
 
 public class OrderService {
 	
-	public String createOrder() throws Exception {
+	public String createOrder(double amount) throws Exception {
 		
 		FraudService fraudService = getFraudService();
-		if(fraudService.isFraudEligible()) {
+		if(fraudService.isFraudEligible(amount)) {
 			throw new Exception("Fraud analysis");
 		}
-		return "0";
+		return "Order created";
 	}
 
 	protected FraudService getFraudService() {
