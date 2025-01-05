@@ -1,5 +1,5 @@
 -com <br/>
-  -service:
+  -service: <br/>
     OrderServicetest:
       Demonstrates Junit 5 + Mockito unit tests;
       createSucessOrderTest(), createFraudOrderTest() methods:
