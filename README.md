@@ -4,7 +4,7 @@
       createSucessOrderTest(), createFraudOrderTest() methods: <br/> 
         Demonstrates org.mockito.Mockito.spy() method; <br/> 
       sendOrderTest() method: <br/> 
-        Demonstrates how mock void method <br/> 
+        Demonstrates how mock void method; <br/> 
       sendStaticOrderTest(): <br/> 
         Demonstrates how mock static methods call;
 
