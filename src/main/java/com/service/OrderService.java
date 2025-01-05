@@ -14,5 +14,12 @@ public class OrderService {
 	protected FraudService getFraudService() {
 		return new FraudService();
 	}
+	
+	public void sendOrder() {
+		int x = 0;
+		int y=5;
+		int sum = x+y;
+		System.out.println("Order sent");
+	}
 
 }

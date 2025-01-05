@@ -3,8 +3,11 @@ package com.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -33,4 +36,12 @@ public class OrderServiceTest {
 		assertThrows(Exception.class, null);
 	}
 
+	@Test
+	public void sendOrderTest() {
+		OrderService orderService = mock(OrderService.class);
+		doNothing().when(orderService).sendOrder();
+		orderService.sendOrder();
+		
+		verify(orderService,times(1)).sendOrder();
+	}
 }
