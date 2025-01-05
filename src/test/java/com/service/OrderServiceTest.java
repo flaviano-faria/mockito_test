@@ -10,6 +10,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 public class OrderServiceTest {
@@ -43,5 +44,17 @@ public class OrderServiceTest {
 		orderService.sendOrder();
 		
 		verify(orderService,times(1)).sendOrder();
+	}
+	
+	@Test
+	public void sendStaticOrderTest() throws InterruptedException {
+		
+		OrderService orderService = mock(OrderService.class);
+		try (MockedStatic<FraudService> mockFiles = Mockito.mockStatic(FraudService.class)) {
+		    mockFiles.when(() -> FraudService.analyse())
+		                     .then(invocationOnMock -> null);
+		}
+		
+		orderService.sendStaticOrder();
 	}
 }

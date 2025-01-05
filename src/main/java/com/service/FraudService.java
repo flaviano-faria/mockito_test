@@ -9,5 +9,9 @@ public class FraudService {
 		}
 		return false;
 	}
+	
+	public static void analyse() throws InterruptedException {
+		Thread.sleep(200000);
+	}
 
 }

@@ -21,5 +21,19 @@ public class OrderService {
 		int sum = x+y;
 		System.out.println("Order sent");
 	}
+	
+	
+	public void sendStaticOrder() throws InterruptedException {
+		
+		int x = 0;
+		int y=5;
+		int sum = x+y;
+		System.out.println("Order analyse is starting");
+		FraudService.analyse();
+		System.out.println("Order analyse is finishing");
+	}
+	
+	
+	
 
 }
