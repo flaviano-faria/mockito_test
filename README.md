@@ -1,11 +1,10 @@
--com <br/>
-  -service: <br/>
-    OrderServicetest:
-      Demonstrates Junit 5 + Mockito unit tests;
-      createSucessOrderTest(), createFraudOrderTest() methods:
-        Demonstrates org.mockito.Mockito.spy() method;
-      sendOrderTest() method:
-        Demonstrates how mock void method
-      sendStaticOrderTest():
+-com.service: <br/> 
+    OrderServicetest: <br/> 
+      Demonstrates Junit 5 + Mockito unit tests; <br/> 
+      createSucessOrderTest(), createFraudOrderTest() methods: <br/> 
+        Demonstrates org.mockito.Mockito.spy() method; <br/> 
+      sendOrderTest() method: <br/> 
+        Demonstrates how mock void method <br/> 
+      sendStaticOrderTest(): <br/> 
         Demonstrates how mock static methods call;
 
