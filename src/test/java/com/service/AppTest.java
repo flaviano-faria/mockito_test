@@ -21,7 +21,7 @@ public class AppTest {
 	@Test
 	public void testSucessOSApp() throws Exception{
 		OrderService orderService = mock(OrderService.class);
-		when(orderService.createOrder(anyDouble())).thenThrow(Exception.class);
+		
 		try (MockedStatic<App> utilities = Mockito.mockStatic(App.class)) {
 			utilities.when(App::getOrderService).thenReturn(orderService);
 			when(orderService.createOrder(anyDouble())).thenThrow(Exception.class);
