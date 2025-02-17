@@ -3,6 +3,7 @@ package com.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
@@ -47,14 +48,26 @@ public class OrderServiceTest {
 	}
 	
 	@Test
-	public void sendStaticOrderTest() throws InterruptedException {
+	public void sendStaticOrderTestFalse() throws InterruptedException {
 		
-		OrderService orderService = mock(OrderService.class);
+		OrderService orderService = new OrderService();
 		try (MockedStatic<FraudService> mockFiles = Mockito.mockStatic(FraudService.class)) {
-		    mockFiles.when(() -> FraudService.analyse())
-		                     .then(invocationOnMock -> null);
+		    mockFiles.when(() -> FraudService.analyse(anyInt()))
+		                     .then(invocationOnMock -> false);
 		}
 		
 		orderService.sendStaticOrder();
+	}
+	
+	@Test
+	public void sendStaticOrderTestTrue() throws InterruptedException {
+		
+		OrderService orderService = new OrderService();
+		try (MockedStatic<FraudService> mockFiles = Mockito.mockStatic(FraudService.class)) {
+		    mockFiles.when(() -> FraudService.analyse(anyInt()))
+		                     .then(invocationOnMock -> true);
+		}
+		
+		assertEquals(true, orderService.sendStaticOrder());
 	}
 }

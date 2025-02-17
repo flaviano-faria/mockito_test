@@ -10,8 +10,8 @@ public class FraudService {
 		return false;
 	}
 	
-	public static void analyse() throws InterruptedException {
-		Thread.sleep(200000);
+	public static boolean analyse(int value){
+			return value %2 == 0;
 	}
 
 }

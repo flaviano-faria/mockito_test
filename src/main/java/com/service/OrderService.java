@@ -23,14 +23,17 @@ public class OrderService {
 	}
 	
 	
-	public void sendStaticOrder() throws InterruptedException {
+	public boolean sendStaticOrder() throws InterruptedException {
 		
 		int x = 0;
 		int y=5;
 		int sum = x+y;
 		System.out.println("Order analyse is starting");
-		FraudService.analyse();
-		System.out.println("Order analyse is finishing");
+		if(FraudService.analyse(5000)) {
+			return true;
+		}
+		return false;
+		
 	}
 	
 	
