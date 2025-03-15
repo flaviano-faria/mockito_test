@@ -33,7 +33,7 @@ public class AppTest {
 	}
 	
 	@Test
-	public void testFruadOSApp() throws Exception{
+	public void testFraudOSApp() throws Exception{
 		OrderService orderService = mock(OrderService.class);
 		when(orderService.createOrder(anyDouble())).thenThrow(Exception.class);
 		try (MockedStatic<App> utilities = Mockito.mockStatic(App.class)) {
