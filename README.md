@@ -65,10 +65,6 @@ Feel free to contribute to this project by:
 4. Pushing to the branch
 5. Creating a Pull Request
 
-## License
-
-This project is open source and available under the MIT License.
-
 ## Contact
 
 For any questions or suggestions, please open an issue in the repository.
