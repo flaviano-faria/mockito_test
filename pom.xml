@@ -3,8 +3,18 @@
   <groupId>mockitotest</groupId>
   <artifactId>mockitotest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mockito.version>5.14.2</mockito.version>
+    <junit.version>4.13.2</junit.version>
+  </properties>
+  
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -13,20 +23,45 @@
           <release>21</release>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+      </plugin>
     </plugins>
   </build>
+  
   <dependencies>
-  <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-	<dependency>
-	    <groupId>org.mockito</groupId>
-	    <artifactId>mockito-core</artifactId>
-	    <version>5.14.2</version>
-	    <scope>test</scope>
-	</dependency>
-	<dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.6.2</version>
+    <!-- Mockito Core -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Mockito JUnit Integration -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- JUnit 4 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- AssertJ for better assertions -->
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.24.2</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
